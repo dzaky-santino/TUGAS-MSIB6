@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 JavaScript</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let namaPegawai = "Ridwan";
+    let jabatan = "Manager";
+    let status = "Menikah";
+    let gajiPokok;
+    let tunjanganJabatan;
+    let bpjs;
+    let tunjanganKeluarga;
+    let totalGaji;
+
+    switch (jabatan) {
+        case "Manager":
+            gajiPokok = 15;
+            break;
+        case "Asisten manager":
+            gajiPokok = 10;
+            break;
+        case "Staff":
+            gajiPokok = 5;
+            break;
+    }
+
+    tunjanganJabatan = gajiPokok * 0.15;
+    bpjs = gajiPokok * 0.1;
+    tunjanganKeluarga = status === "Menikah" ? gajiPokok * 0.2 : 0;
+    totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+    let h2 = `<h2 style="text-align:center;">Data Pegawai</h2>`;
+
+    let table = `
+<table style="border:1px solid black; border-collapse:collapse; margin:auto">
+  <thead>
+    <tr>
+      <th style="border:1px solid black; padding:5px;">Nama Pegawai</th>
+      <th style="border:1px solid black; padding:5px;">Jabatan</th>
+      <th style="border:1px solid black; padding:5px;">Status</th>
+      <th style="border:1px solid black; padding:5px;">Gaji Pokok</th>
+      <th style="border:1px solid black; padding:5px;">Tunjangan Jabatan</th>
+      <th style="border:1px solid black; padding:5px;">BPJS</th>
+      <th style="border:1px solid black; padding:5px;">Tunjangan Keluarga</th>
+      <th style="border:1px solid black; padding:5px;">Total Gaji</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border:1px solid black; padding:5px;">${namaPegawai}</td>
+      <td style="border:1px solid black; padding:5px;">${jabatan}</td>
+      <td style="border:1px solid black; padding:5px;">${status}</td>
+      <td style="border:1px solid black; padding:5px;">${gajiPokok} jt</td>
+      <td style="border:1px solid black; padding:5px;">${tunjanganJabatan} jt</td>
+      <td style="border:1px solid black; padding:5px;">${bpjs} jt</td>
+      <td style="border:1px solid black; padding:5px;">${tunjanganKeluarga} jt</td>
+      <td style="border:1px solid black; padding:5px;">${totalGaji} jt</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="7" style="border:1px solid black; padding:5px;">Total Gaji</td>
+      <td style="border:1px solid black; padding:5px;">${totalGaji} jt</td>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+    document.write(h2+table);
+
+
+</script>
+
+</html>
