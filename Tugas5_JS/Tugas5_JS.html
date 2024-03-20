@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Letakkan Kursor Ke Masing-Masing Kotak Untuk Melihat Gambar</h2>
+    <div id="div1">Hewan Bebek</div>
+    <div id="div2">Hewan Kucing</div>
+    <div id="div3">Hewan Ayam</div>
+    <audio id="sound1" src="Bebek.mp3"></audio>
+    <audio id="sound2" src="Kucing.mp3"></audio>
+    <audio id="sound3" src="Ayam.mp3"></audio>
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    // ketika mousenya diatas gambar atau kotak maka hewannya bisa bersuara
+    $("document").ready(function () {
+        $("#div1").mouseover(function () {
+            $(this).css({
+                background : "url(https://media.istockphoto.com/id/1127302688/id/vektor/ikon-bebek-kuning.jpg?s=612x612&w=0&k=20&c=dfnwLWv-sisGI9PxcqfIiHZB3PFU9K1imtWWgmGlJOU=)",
+                "background-repeat" : "no-repeat",
+                "background-position" : "center",
+                "background-size" : "cover"
+            })
+            $("#sound1")[0].play();
+        })
+        $("#div2").mouseover(function () {
+            $(this).css({
+                background : "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAl5eJZE2qwLUcuR95qG4fFW8VF4C-Yl7lTeJ7K1F4YnlxtgN-o1u6VLvGaA&s)",
+                "background-repeat" : "no-repeat",
+                "background-position" : "center",
+                "background-size" : "cover"
+            })
+            $("#sound2")[0].play();
+        })
+        $("#div3").mouseover(function () {
+            $(this).css({
+                background : "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlkJZzijAcGRMvSPEUvu-tPHbDwsWoKfhOc_qDRpuyso23xtpZM7mRHJT7tw&s)",
+                "background-repeat" : "no-repeat",
+                "background-position" : "center",
+                "background-size" : "cover"
+            })
+            $("#sound3")[0].play();
+        })
+        $("div").mouseout(function(){
+            $(this).css({
+                background: "greenyellow"
+            })
+            $("audio").each(function(){
+                this.pause(); // Stop playing
+                this.currentTime = 0; // Reset time
+            }); 
+        })
+    })
+</script>
+
+</html>
